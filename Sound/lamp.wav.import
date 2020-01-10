@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lamp.wav-37b6aca72b3986e2bd707a8b23d8dd9c.sample"
+
+[deps]
+
+source_file="res://Sound/lamp.wav"
+dest_files=[ "res://.import/lamp.wav-37b6aca72b3986e2bd707a8b23d8dd9c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

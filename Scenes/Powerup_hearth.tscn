@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Powerup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Powerup_hearth.gd" type="Script" id=2]
+
+[node name="Powerup_hearth" instance=ExtResource( 1 )]
+script = ExtResource( 2 )

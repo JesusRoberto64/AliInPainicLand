@@ -17,7 +17,7 @@ func _ready():
 	
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	
 	position += velocity
 	
@@ -41,6 +41,7 @@ func set_armor(new_value):
 	if armor <= 0:
 		var tt = get_tree().get_root().get_child(0).get_node_or_null("hud").get_node("text_score")
 		tt.score += 1
+		($exploted as AudioStreamPlayer2D).play()
 		create_explotion()
 		queue_free()
 		pass

@@ -5,7 +5,7 @@
 
 [node name="Enemy_zigzag" index="0" instance=ExtResource( 1 )]
 modulate = Color( 0.972549, 0.301961, 0.301961, 1 )
-position = Vector2( 40, 24 )
+position = Vector2( 12.8227, -14.7774 )
 script = ExtResource( 2 )
 velocity = Vector2( 1, 1 )
 

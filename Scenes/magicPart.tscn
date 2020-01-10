@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/magia_00.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/magicPart.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/magia_01.png" type="Texture" id=3]
+[ext_resource path="res://Sound/hit.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade"
@@ -39,3 +40,6 @@ script = ExtResource( 2 )
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 1 )
+
+[node name="get_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )

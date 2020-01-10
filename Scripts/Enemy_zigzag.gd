@@ -25,8 +25,9 @@ func _process(delta):
 		velocity.x = -abs(velocity.x)
 	
 	
-	var currentTime = get_tree().get_frame()*delta
+	var currentTime = get_tree().get_frame()*get_process_delta_time()
 	
+	print(currentTime)
 	if  currentTime >= timeShots:
 		
 		timeShots = currentTime + timeBetweenShots
@@ -40,6 +41,8 @@ func shoot():
 	
 	var bullet = bulletEnemy.instance()
 	bullet.position = position 
+	## TESTING 
+	#var rootNode = get_parent()
 	var rootNode = get_tree().get_root().get_node("World")
 	rootNode.add_child(bullet)
 	

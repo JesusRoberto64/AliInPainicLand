@@ -4,6 +4,7 @@ extends "res://Scripts/Bullet.gd"
 
 func _ready():
 	
+	($Shoot_snd as AudioStreamPlayer).play()
 	connect("area_entered",self,"on_area_enter")
 	
 	pass # Replace with function body.

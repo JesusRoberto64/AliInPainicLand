@@ -20,6 +20,7 @@ script = ExtResource( 1 )
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="btn_start" type="TextureButton" parent="hud"]
+editor/display_folded = true
 margin_left = 25.0
 margin_top = 69.0
 margin_right = 55.0
@@ -42,6 +43,7 @@ align = 1
 valign = 1
 
 [node name="btn_quit" type="TextureButton" parent="hud"]
+editor/display_folded = true
 margin_left = 25.0
 margin_top = 94.0
 margin_right = 55.0
