@@ -9,7 +9,7 @@ func _process(delta):
 	pass
 func _on_area_enter(other):
 	if other.is_in_group("Player"):
-		other.is_double_shoting = true
+		other.armor += 1
 		queue_free()
 		pass
 	

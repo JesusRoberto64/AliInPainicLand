@@ -6,6 +6,7 @@ func _ready():
 	#velocity.y = .5
 	pass # Replace with function body.
 
+# warning-ignore:unused_argument
 func _process(delta):
 	
 	#velocity.y = 2

@@ -10,13 +10,9 @@ func _ready():
 	
 	pass
 
+# warning-ignore:unused_argument
 func _process(delta):
 	position += velocity
-	
-	#if position.y >= get_viewport_rect().size.y or position.y <= 0:
-	#	queue_free()
-	#	pass 
-	 
 	pass
 
 func create_Magic():

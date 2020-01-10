@@ -4,6 +4,7 @@ var velocity = Vector2(0,1)
 
 func _ready():
 	pass # Replace with function body.
+# warning-ignore:unused_argument
 func _process(delta):
 	
 	position += velocity

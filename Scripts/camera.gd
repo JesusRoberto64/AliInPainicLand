@@ -10,9 +10,7 @@ func _ready():
 	
 
 func _process(delta):
-#	if Input.is_action_pressed("ui_up"):
-#		_pass_shake(0.5,0.2)
-	
+
 	if is_shaking:
 		_shake()
 	pass
