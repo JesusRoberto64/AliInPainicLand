@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/sandBG.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Paralax.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/cludsBG.png" type="Texture" id=3]
+
+[node name="ParalaxBG" type="Node"]
+
+[node name="Sand" type="Node2D" parent="."]
+
+[node name="Background_00" type="Sprite" parent="Sand"]
+position = Vector2( 0, -1 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 0.5 )
+offsetMult = 2
+
+[node name="Background_01" type="Sprite" parent="Sand"]
+position = Vector2( 0, -289 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 0.5 )
+offsetMult = 2
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="Cloud_00" type="Sprite" parent="Clouds"]
+texture = ExtResource( 3 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 1 )
+
+[node name="Cloud_01" type="Sprite" parent="Clouds"]
+position = Vector2( 0, 133 )
+texture = ExtResource( 3 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 1 )

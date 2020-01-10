@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+var cancel = false
+
+var st 
+
+func _ready():
+	pass # Replace with function body.
+
+func _process(delta):
+	
+	if Input.is_action_just_released(\"ui_up\"):
+		st = myFuncTest()
+		
+		pass
+	if Input.is_action_just_released(\"ui_down\"):
+		if cancel:
+			queue_free()
+			print(\"instace destryed\")
+		cancel = true
+		#queue_free()
+		#myFuncTest()
+	pass
+
+func myFuncTest():
+	print(\"In fuction line1\")
+	
+	while true:
+		print(\"Esta yeleado\")
+		if cancel : return
+		yield(get_tree().create_timer(2),\"timeout\")
+	pass
+"
+
+[node name="Node" type="Node"]
+script = SubResource( 1 )
