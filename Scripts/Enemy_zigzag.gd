@@ -6,12 +6,22 @@ const bulletEnemy = preload("res://Scenes/Bullet_bug.tscn")
 onready var  timeBetweenShots =  0.3  # porfrmaes
 onready var timeShots = 1
 
+var myTimer
+var shootTime = 0.3
+
 func _ready():
 	
 	randomize()
 	var direction = [-1,1]
 	
 	velocity.x = velocity.x*direction[randi()%direction.size()]
+	
+	myTimer = Timer.new()
+	myTimer.set_wait_time(shootTime)
+	add_child(myTimer)
+	myTimer.connect("timeout",self,"shoot")
+	
+	myTimer.start()
 	
 	pass # Replace with function body.
 
@@ -27,11 +37,11 @@ func _process(delta):
 	
 	var currentTime = get_tree().get_frame()*get_process_delta_time()
 	
-	print(currentTime)
+	#print(currentTime)
 	if  currentTime >= timeShots:
 		
 		timeShots = currentTime + timeBetweenShots
-		shoot()
+		#shoot()
 		pass
 	
 	
@@ -45,5 +55,6 @@ func shoot():
 	#var rootNode = get_parent()
 	var rootNode = get_tree().get_root().get_node("World")
 	rootNode.add_child(bullet)
+	myTimer.set_wait_time(0.3)
 	
 	pass

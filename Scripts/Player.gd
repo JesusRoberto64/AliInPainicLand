@@ -14,10 +14,7 @@ signal armor_change
 signal exit_tree 
 
 var myTimer
-var cancelYield = false #porvitional solucion 
-
-#var soundHearth
-#var soundPowup
+var doubleTimer
 
 func _ready():
 	add_to_group("Player")
@@ -28,6 +25,11 @@ func _ready():
 	myTimer.connect("timeout",self,"shoot")
 	
 	myTimer.start()
+	
+	doubleTimer = Timer.new()
+	doubleTimer.set_wait_time(5)
+	add_child(doubleTimer)
+	doubleTimer.start()
 	
 	pass
 
@@ -46,9 +48,8 @@ func _process(delta):
 	var spriteSize = get_node("Sprite").texture.get_width()
 	
 	position.x += motionPlayer 
-	
 	position.x = clamp(position.x, 0 + spriteSize/2, viewWidth -spriteSize/2)
-
+	
 	pass 
 
 func shoot():
@@ -89,7 +90,6 @@ func set_armor(new_value):
 		emit_signal("exit_tree")
 		#if cancelYield: queue_free()
 		queue_free()
-		cancelYield = true
 	
 	pass
 
@@ -114,10 +114,12 @@ func create_explotion():
 
 func set_doubel_shooting(new_value):
 	is_double_shoting = new_value
+	myTimer.start(0.1)
 	if is_double_shoting:
 		#if cancelYield: return
-		yield(get_tree().create_timer(5),"timeout") # fix
-		print("sin poder")
-		is_double_shoting = false
+		#yield(get_tree().create_timer(5),"timeout") # fix
+		#print("sin poder")
+		#is_double_shoting = false
+		pass
 	
 	pass
