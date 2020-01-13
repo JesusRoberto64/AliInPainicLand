@@ -29,11 +29,9 @@ func _ready():
 	doubleTimer = Timer.new()
 	doubleTimer.set_wait_time(5)
 	add_child(doubleTimer)
-	doubleTimer.start()
 	
 	pass
 
-# warning-ignore:unused_argument
 func _process(delta):
 	
 	var mousePos =  Vector2()
@@ -50,6 +48,11 @@ func _process(delta):
 	position.x += motionPlayer 
 	position.x = clamp(position.x, 0 + spriteSize/2, viewWidth -spriteSize/2)
 	
+	if doubleTimer.time_left < 0.1 and is_double_shoting:
+		print("se cancelo el doble")
+		is_double_shoting = false
+		doubleTimer.stop() 
+		pass
 	pass 
 
 func shoot():
@@ -71,7 +74,6 @@ func shoot():
 
 func set_armor(new_value):
 	if new_value >= 4: return
-	
 	if new_value < armor:
 		var flare = snc_flash.instance()
 		var root = get_tree().get_root().get_node_or_null("World")
@@ -80,15 +82,12 @@ func set_armor(new_value):
 	
 	armor = new_value
 	
-#	var rootPlayer = get_tree().root.get_child(0).get_node_or_null("hud").get_child(0)
-#	print(rootPlayer)
 	emit_signal("armor_change",armor)
 	
 	if armor <= 0:
 		
 		create_explotion()
 		emit_signal("exit_tree")
-		#if cancelYield: queue_free()
 		queue_free()
 	
 	pass
@@ -108,18 +107,10 @@ func create_explotion():
 	explotion.position = position 
 	var rootNode = get_tree().get_root().get_node("World")
 	rootNode.add_child(explotion)
-	
-	
 	pass
 
 func set_doubel_shooting(new_value):
 	is_double_shoting = new_value
 	myTimer.start(0.1)
-	if is_double_shoting:
-		#if cancelYield: return
-		#yield(get_tree().create_timer(5),"timeout") # fix
-		#print("sin poder")
-		#is_double_shoting = false
-		pass
-	
+	doubleTimer.start(5)
 	pass
