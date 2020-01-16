@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Ali in Panic Land "
 run/main_scene="res://Scenes/Main_Menu.tscn"
+boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
 
 [display]
