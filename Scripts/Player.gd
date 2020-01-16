@@ -49,7 +49,6 @@ func _process(delta):
 	position.x = clamp(position.x, 0 + spriteSize/2, viewWidth -spriteSize/2)
 	
 	if doubleTimer.time_left < 0.1 and is_double_shoting:
-		print("se cancelo el doble")
 		is_double_shoting = false
 		doubleTimer.stop() 
 		pass

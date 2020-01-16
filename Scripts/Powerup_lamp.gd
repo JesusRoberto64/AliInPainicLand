@@ -11,7 +11,6 @@ func _on_area_enter(other):
 	if other.is_in_group("Player"):
 		other.is_double_shoting = true
 		other.get_node("Lamp_snd").play()
-		#print("doble power")
 		queue_free()
 		pass
 	
