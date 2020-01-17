@@ -1,6 +1,5 @@
 extends "res://Scripts/enemyParent.gd"
 
-
 const bulletEnemy = preload("res://Scenes/Bullet_bug.tscn")
 
 onready var  timeBetweenShots =  0.3  # porfrmaes
@@ -26,25 +25,12 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	
 	var myOffsetSpr = get_node("Sprite").texture.get_width()/2
 	
 	if position.x <= myOffsetSpr:
 		velocity.x = abs(velocity.x)
 	if position.x >= get_viewport_rect().size.x - myOffsetSpr:
 		velocity.x = -abs(velocity.x)
-	
-	
-	var currentTime = get_tree().get_frame()*get_process_delta_time()
-	
-	#print(currentTime)
-	if  currentTime >= timeShots:
-		
-		timeShots = currentTime + timeBetweenShots
-		#shoot()
-		pass
-	
-	
 	pass
 
 func shoot():
