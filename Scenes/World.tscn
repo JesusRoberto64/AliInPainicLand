@@ -57,7 +57,7 @@ font_data = ExtResource( 10 )
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 41, 129 )
+position = Vector2( 40, 120 )
 
 [node name="camera" type="Camera2D" parent="."]
 anchor_mode = 0

@@ -36,17 +36,24 @@ func _process(delta):
 	
 	var mousePos =  Vector2()
 	var playerPos = position.x
+	var playerPosY = position.y
 	
 	mousePos = get_global_mouse_position()
 	
-	var motionPlayer = (mousePos.x - playerPos)*.5
+	var motionPlayer = Vector2((mousePos.x - playerPos)*.5,(mousePos.y - playerPosY)*.5) 
 	
 	#clamp palyer 
 	var viewWidth = get_viewport_rect().size.x
+	var viewHeigth = get_viewport_rect().size.y # implmentacion de Y coordenada 
 	var spriteSize = get_node("Sprite").texture.get_width()
+	var spriteHeigth = ($Sprite as Sprite).texture.get_height()
 	
-	position.x += motionPlayer 
+	position += motionPlayer#.normalized()  
+	position.y = clamp(position.y, 0 + spriteHeigth/2, viewHeigth -spriteHeigth/2)
 	position.x = clamp(position.x, 0 + spriteSize/2, viewWidth -spriteSize/2)
+	
+	#Implemetacion Y
+	#position.y += motionPlayer
 	
 	if doubleTimer.time_left < 0.1 and is_double_shoting:
 		is_double_shoting = false
@@ -55,7 +62,7 @@ func _process(delta):
 	pass 
 
 func shoot():
-	myTimer.set_wait_time(0.3)
+	myTimer.set_wait_time(0.3) # Se recetea el timer
 	var pos_left =  get_node("cannos/left").global_position
 	var pos_rigth = get_node("cannos/rigth").global_position
 	create_Bullet(pos_left)
